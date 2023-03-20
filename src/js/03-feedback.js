@@ -17,7 +17,11 @@ function onFormInput(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
-  formEl.reset();
+
+  const isFormValid = email.value.trim() !== '' && message.value.trim() !== '';
+  isFormValid ? null : alert('Please fill in all the fields!');
+  
+  event.currentTarget.reset();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
 }
